@@ -2,20 +2,15 @@
 create extension if not exists "uuid-ossp";
 create extension if not exists "citext";
 
-DROP domain if exists phone_no;
 
-CREATE TABLE users (
+CREATE TABLE products (
     id uuid PRIMARY KEY,
-	email citext unique not null,
 	name text not null,
-	country_code text,
-	phone_number text unique,
-	address text,
-	password_hash bytea not null,
+	description text not null,
 	created_at timestamp default now(),
 	updated_at timestamp default now(),
 	version int not null default 1
 );
 
 -- +goose Down
-DROP TABLE users;
+DROP TABLE products;
