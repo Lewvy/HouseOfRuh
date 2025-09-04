@@ -1,2 +1,4 @@
 postgres.yaml
 .env
+sql/queries
+internal/db
